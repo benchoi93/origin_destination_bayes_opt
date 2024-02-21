@@ -11,11 +11,11 @@ Current directory contains the "v4" version of OD. This is used to test three di
 
 ## Testing
 
-If you want to test a single run of simulator use the notebook `bayesian_optimization/compare_methods.ipynb`
+If you want to test a single run of simulator use the notebook `bayesian_optimization/00_test_simulator.ipynb`
 
 ## Helpers
 
-All helper functions that are used to run simulations are saved in `bayesian_optimization/helpers.py`
+All helper functions that are used to run simulations are saved in `bayesian_optimization/helpers.py`. These functions were refactored from `generate_routes.ipynb`.
 
 ## Git ignore
 The following files need to be added into the root folder of this repo in order to run simulations. These are part of gitignore in order to make the repo light weight:
