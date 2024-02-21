@@ -1,0 +1,12 @@
+<data><interval id="DEFAULT_VEHTYPE" begin="0" end="300">
+  <tazRelation from="10100" to="10400" count="97.4" />
+  <tazRelation from="10100" to="10500" count="114.9" />
+  <tazRelation from="10100" to="105000" count="104.1" />
+  <tazRelation from="10100" to="108100" count="100.0" />
+  <tazRelation from="10100" to="108200" count="109.1" />
+  <tazRelation from="10100" to="11200" count="106.7" />
+  <tazRelation from="10100" to="11300" count="87.8" />
+  <tazRelation from="10100" to="114200" count="101.1" />
+  <tazRelation from="10100" to="11700" count="113.9" />
+  <tazRelation from="10100" to="11902" count="109.4" />
+</interval></data>
