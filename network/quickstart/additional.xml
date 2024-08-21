@@ -20,7 +20,7 @@
 	<e1Detector id="e1Detector_#EdgeL7_1" lane="L7_1" pos="0" freq="3600" file="../../out.xml"/>
 	<e1Detector id="e1Detector_#EdgeL7_2" lane="L7_2" pos="0" freq="3600" file="../../out.xml"/>
 
-  <edgeData id="edge_data_300sec_freq" freq="300" file="../../edge_data_quickstart2.xml" excludeEmpty="true"/>
+  <edgeData id="edge_data_300sec_freq" freq="300" file="../../edge_data_quickstart.xml" excludeEmpty="true"/>
   <!-- <edgeData id="edge_data_300sec_freq" freq="300" file="edge_data_quickstart2.xml" excludeEmpty="true"/> -->
 
 </additional>
