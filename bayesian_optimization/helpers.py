@@ -1,7 +1,9 @@
-import xml.etree.ElementTree as ET
 import os
-import pandas as pd
+import xml.etree.ElementTree as ET
+
 import numpy as np
+import pandas as pd
+
 # pip3 install lxml
 
 def iter_str(author, row_str):
@@ -124,9 +126,9 @@ def simulate_od(od_xml:str,
         #f"od2trips --no-step-log  --spread.uniform "
         f"od2trips  --spread.uniform "
         #Loads TAZ (districts)
-        f"--taz-files {base_dir}/{taz2edge_xml} " 
+        f"--taz-files {taz2edge_xml} " 
         # Loads O/D-matrix in tazRelation format fromFILE(s)
-        f"--tazrelation-files {base_dir}/{od_xml} "
+        f"--tazrelation-files {od_xml} "
         # Writes trip definitions into FILE
         f"-o {trip_output_file_od2trips_before}" 
     )
@@ -139,18 +141,18 @@ def simulate_od(od_xml:str,
         # Do not check whether routes are connected
         f"--ignore-route-errors=true "
         # Load road network description from FILE
-        f"--net-file={base_dir}/{net_xml} "
+        f"--net-file={net_xml} "
         # Load routes descriptions from FILE(s)
         f"--routes={trip_output_file_od2trips_after} "
         #  -b Defines the begin time in seconds; The simulation starts at this time
         # -e Defines the end time in seconds; The simulation ends at this time
         f"-b {sim_start_time} -e {sim_end_time} "
         # Load further descriptions from FILE(s)
-        f"--additional-files {base_dir}/{additional_xml} "
+        f"--additional-files {additional_xml} "
         f"--duration-log.statistics "
         f"--xml-validation never "
         # Save single vehicle route info into FILE
-        f"--vehroutes {base_dir}/routes.vehroutes.xml "
+        f"--vehroutes routes.vehroutes.xml "
         f"--verbose "
         # Disables output of warnings
         f"--no-warnings "
@@ -216,7 +218,7 @@ def parse_loop_data_xml_to_pandas(base_dir,sim_edge_file,prefix_output,SUMO_PATH
 
     # aggregate the rest of the time intervals
     df_agg = df_trips.groupby(by=['edge_id'], as_index=False).agg(
-        {'interval_nVehContrib':np.sum, 'interval_harmonicMeanSpeed':np.mean})
+        {'interval_nVehContrib':"sum", 'interval_harmonicMeanSpeed':"mean"})
 
 
     return df_agg, df_trips, output_file
