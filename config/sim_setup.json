@@ -1,0 +1,15 @@
+{
+    "objective": "counts",
+    "network_name": "quickstart",
+    "model_name": "bo_vanilla",
+    "sim_start_time": 54000,
+    "sim_end_time": 57600,
+    "sim_stat_freq_sec": 300,
+    "od_duration_sec": 300,
+    "n_sumo_replicate": 1,
+    "n_init_search": 10,
+    "BO_niter": 10,
+    "BO_batch_size": 1,
+    "BO_num_restarts": 5,
+    "BO_raw_samples": 32
+}

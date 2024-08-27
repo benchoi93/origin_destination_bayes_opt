@@ -1,10 +1,42 @@
+import json
 import os
 import xml.etree.ElementTree as ET
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
 # pip3 install lxml
+
+def load_experiment_metadata(config_path: str):
+
+    try:
+        config = json.load(open(Path(config_path, "config.json") ))
+        # config["NETWORK"] = Path(config["NETWORK"])
+        config["SUMO"] = Path(config["SUMO"])
+    except FileNotFoundError:
+        print("config.json not found in ", config_path)
+        return None, None
+    
+    # input_path can be the network-specific subfolder that has the input files for that network. 
+    try:
+        sim_setup = json.load(open(Path(config_path, "sim_setup.json") ))
+    except FileNotFoundError:
+        print("sim_setup.json not found in ", config_path)
+        return config, None
+
+    return config, sim_setup
+
+def od_xml_to_df(file_path):
+
+    tree = ET.parse(file_path)
+    root = tree.getroot()
+    gt_od_df =  xml2df_str(root, 'tazRelation')
+    
+    gt_od_vals = gt_od_df['count'].astype(float)
+    print('total GT demand: ',gt_od_vals.sum())
+
+    return gt_od_df
 
 def iter_str(author, row_str):
     author_attr = author.attrib
