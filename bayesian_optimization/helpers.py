@@ -270,7 +270,7 @@ def compute_nrmse_counts_all_edges(df_true, df_simulated):
         )**2
     
     n = df1.shape[0]
-    print('number of GT edges:',n)
+    # print('number of GT edges:',n)
     #print(df_true.shape[0])
     #print(df_simulated.shape[0])
     RMSN = np.sqrt(n*(df1['diff_square'].sum()))/df1['interval_nVehContrib_GT'].sum()
