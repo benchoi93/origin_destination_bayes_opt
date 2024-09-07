@@ -8,6 +8,10 @@ Current directory contains the "v4" version of OD. This is used to test three di
 - Trust Region BO: https://botorch.org/tutorials/turbo_1
   - Notebook: `bayesian_optimization/03_bo_trust_region.ipynb`
 
+## Network
+Download:
+[https://drive.google.com/drive/folders/1--mlsymabNWqtGUKvF1ujgmPg0BXaAyb?usp=sharing](https://drive.google.com/drive/folders/1--mlsymabNWqtGUKvF1ujgmPg0BXaAyb?usp=sharing)
+
 
 ## Testing
 
