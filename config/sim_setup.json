@@ -11,5 +11,6 @@
     "BO_niter": 100,
     "BO_batch_size": 1,
     "BO_num_restarts": 5,
-    "BO_raw_samples": 32
+    "BO_raw_samples": 32,
+    "BO_sample_shape": 128
 }
