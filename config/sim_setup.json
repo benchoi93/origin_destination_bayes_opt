@@ -1,7 +1,6 @@
 {
     "objective": "counts",
     "network_name": "quickstart",
-    "model_name": "bo_vanilla",
     "sim_start_time": 54000,
     "sim_end_time": 57600,
     "sim_stat_freq_sec": 300,

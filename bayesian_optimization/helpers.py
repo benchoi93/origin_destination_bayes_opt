@@ -29,8 +29,8 @@ def load_experiment_metadata(config_path: str):
 
 def load_kwargs_config(base_path: str, model_name : str):
     config_path = Path(base_path , 'config')
-
-    config, sim_setup = load_experiment_metadata(config_path)
+    # config, sim_setup = load_experiment_metadata(config_path)
+    sim_setup = json.load(open(Path(config_path, "sim_setup.json") ))
 
     kwargs_config = {}
 
@@ -47,7 +47,8 @@ def load_kwargs_config(base_path: str, model_name : str):
 
     kwargs_config["EDGE_OUT_STR"] = f'edge_data_{kwargs_config["network_name"]}.xml'
     kwargs_config["TRIPS2ODS_OUT_STR"] = 'trips.xml'
-    kwargs_config["SUMO_PATH"] = config["SUMO"]
+    # kwargs_config["SUMO_PATH"] = config["SUMO"]
+    kwargs_config["SUMO_PATH"] = os.environ['SUMO_HOME']
 
     kwargs_config["sim_start_time"] = sim_setup['sim_start_time']
     kwargs_config["sim_end_time"] = sim_setup['sim_end_time']
