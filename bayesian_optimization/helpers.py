@@ -43,9 +43,10 @@ def load_kwargs_config(base_path: str, model_name : str):
     kwargs_config["fixed_routes"] = Path(base_path, kwargs_config["network_path"], 'routes.csv')
     kwargs_config["file_gt_od"] = Path(base_path, kwargs_config["network_path"], 'od.xml')
     kwargs_config["additional_xml"] = Path(base_path, kwargs_config["network_path"], 'additional.xml')
+    kwargs_config["edge_selection"] = Path(base_path, kwargs_config["network_path"], 'edge_selection.txt')
     kwargs_config["simulation_run_path"] = f"output/{kwargs_config['network_name']}_{kwargs_config['model_name']}" 
 
-    kwargs_config["EDGE_OUT_STR"] = f'edge_data_{kwargs_config["network_name"]}.xml'
+    kwargs_config["EDGE_OUT_STR"] = f'edge_data.xml'
     kwargs_config["TRIPS2ODS_OUT_STR"] = 'trips.xml'
     # kwargs_config["SUMO_PATH"] = config["SUMO"]
     kwargs_config["SUMO_PATH"] = os.environ['SUMO_HOME']
@@ -250,7 +251,7 @@ def simulate_od(od_xml:str,
         print("Unable to run sumo")
 
 
-def parse_loop_data_xml_to_pandas(base_dir,sim_edge_file,prefix_output,SUMO_PATH):
+def parse_loop_data_xml_to_pandas(base_dir,sim_edge_file,prefix_output,SUMO_PATH, edge_list = None):
     """Read sumo_edge output file. Produce aggregate edge statistics. 
     """
 
@@ -289,6 +290,9 @@ def parse_loop_data_xml_to_pandas(base_dir,sim_edge_file,prefix_output,SUMO_PATH
     df_agg = df_trips.groupby(by=['edge_id'], as_index=False).agg(
         {'interval_nVehContrib':"sum", 'interval_harmonicMeanSpeed':"mean"})
 
+    if edge_list is not None:
+        print(f'Filtering edges to [{edge_list}]')
+        df_agg = df_agg[df_agg['edge_id'].isin(edge_list)]
 
     return df_agg, df_trips, output_file
 

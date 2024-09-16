@@ -9,7 +9,7 @@
   <route id="route04" edges="D4 L4 L14 L18 L5 D5"/>
   <route id="route05" edges="D4 L4 L14 L16 L10 L7 D7"/>
   
-    <processing>
+    <!-- <processing>
         <time-to-teleport value="-1"/>
     </processing>
 
@@ -18,9 +18,11 @@
 	<e1Detector id="e1Detector_#EdgeL5_2" lane="L5_2" pos="0" freq="3600" file="../../out.xml"/>
 	<e1Detector id="e1Detector_#EdgeL7_0" lane="L7_0" pos="0" freq="3600" file="../../out.xml"/>
 	<e1Detector id="e1Detector_#EdgeL7_1" lane="L7_1" pos="0" freq="3600" file="../../out.xml"/>
-	<e1Detector id="e1Detector_#EdgeL7_2" lane="L7_2" pos="0" freq="3600" file="../../out.xml"/>
+	<e1Detector id="e1Detector_#EdgeL7_2" lane="L7_2" pos="0" freq="3600" file="../../out.xml"/> -->
 
-  <edgeData id="edge_data_300sec_freq" freq="300" file="../../edge_data.xml" excludeEmpty="true"/>
+  <!-- <edgeData id="edge_data_300sec_freq" freq="300" file="../../edge_data.xml" edges="D2 D4" excludeEmpty="true"/> -->
+  <edgeData id="edge_data_300sec_freq" freq="300" file="../../edge_data.xml" edgesFile="edge_selection.txt" excludeEmpty="true"/>
+  <!-- <edgeData id="edge_data_300sec_freq" freq="300" file="../../edge_data.xml" edgesFile="edge_selection.txt" excludeEmpty="true"/> -->
   <!-- <edgeData id="edge_data_300sec_freq" freq="300" file="edge_data_quickstart2.xml" excludeEmpty="true"/> -->
 
 </additional>
