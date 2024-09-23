@@ -1,3 +1,3 @@
 {
-    "SUMO": "/opt/homebrew/opt/sumo/share/sumo"
+    "SUMO": "/usr/share/sumo"
 }
