@@ -5,6 +5,7 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import multiprocessing as mp
 
 # pip3 install lxml
 
@@ -62,6 +63,8 @@ def load_kwargs_config(base_path: str, model_name : str):
     kwargs_config["NUM_RESTARTS"] = sim_setup["BO_num_restarts"]
     kwargs_config["RAW_SAMPLES"] = sim_setup["BO_raw_samples"] 
     kwargs_config["SAMPLE_SHAPE"] = sim_setup["BO_sample_shape"]
+
+    kwargs_config["CPU_COUNTS"] = mp.cpu_count()
 
     return kwargs_config
 
